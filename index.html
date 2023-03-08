@@ -1,5 +1,9 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
+<!DOCTYPE HTML>
+<!--
+	Photon by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
 	<head>
 		<title>ZET-Speech</title>
@@ -10,224 +14,163 @@
 	</head>
 	<body class="is-preload">
 
-		<!-- Header -->
-			<section id="header">
-				<div class="inner">
-					<span class="icon solid major fa-cloud"></span>
-					<h1>ZET-Speech</h1>
-					<p>ZET-Speech: Zero-shot adaptive Emotion-controllable Text-to-Speech Synthesis with Diffusion and Style-based Models</p>
-					<ul class="actions special">
-						<li><a href="#one" class="button scrolly">Start</a></li>
-					</ul>
-				</div>
-			</section>
+		<!-- One -->
 			<section id="one" class="main style1">
-        <div>
-          <a name="seen"><h2>Seen Speaker Emotional TTS</h2></a>
-          <hr>
-          <table border=1>
-            <tbody>
-            <tr>
-              <th>Emotion</th>
-              <th>OES (Female)</th>
-              <th>KSH (Male)</th>
-              <th>YSH (Female)</th>
-              <th>LYT (Male)</th>
-              <th>LSY (Female)</th>
-              <th>PGJ (Male)</th>
-            </tr>
-            <tr>
-              <th>Reference (Neutral)</th>
-              <td><audio controls preload="none"><source src="wavs_seen/0015_OES/ref.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0023_KSH/ref.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0016_YSH/ref.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0002_LYT/ref.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0017_LSY/ref.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0024_PGJ/ref.wav"></audio></td>
-            </tr>
-            <tr>
-              <th>Text </th>
-              <td>저희 회사에 방문해 주셔서 감사드립니다.</td>
-              <td>아이들도 언젠가는 그녀를 엄마로 받아들일 거야.</td>
-              <td>영희는 절대 다른 사람의 의견을 받아들이지 않아.</td>
-              <td>철수는 이유를 묻지 않고 돈을 빌려 주었다.</td>
-              <td>아무 것도 먹지 않으면 죽게 되어 있다.</td>
-              <td>그녀의 사랑을 얻기 위해 애썼지만 헛수고였다.</td>
-            </tr>
-            <tr>
-              <th>Neutral</th>
-              <td><audio controls preload="none"><source src="wavs_seen/0015_OES/무감정.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0023_KSH/무감정.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0016_YSH/무감정.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0002_LYT/무감정.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0017_LSY/무감정.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0024_PGJ/무감정.wav"></audio></td>
-            </tr>
-            <tr>
-              <th>Happy</th>
-              <td><audio controls preload="none"><source src="wavs_seen/0015_OES/기쁨.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0023_KSH/기쁨.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0016_YSH/기쁨.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0002_LYT/기쁨.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0017_LSY/기쁨.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0024_PGJ/기쁨.wav"></audio></td>
-            </tr>
-            <tr>
-              <th>Sad</th>
-              <td><audio controls preload="none"><source src="wavs_seen/0015_OES/슬픔.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0023_KSH/슬픔.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0016_YSH/슬픔.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0002_LYT/슬픔.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0017_LSY/슬픔.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0024_PGJ/슬픔.wav"></audio></td>
-            </tr>
-            <tr>
-              <th>Angry</th>
-              <td><audio controls preload="none"><source src="wavs_seen/0015_OES/분노.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0023_KSH/분노.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0016_YSH/분노.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0002_LYT/분노.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0017_LSY/분노.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0024_PGJ/분노.wav"></audio></td>
-            </tr>
-            <tr>
-              <th>Anxious</th>
-              <td><audio controls preload="none"><source src="wavs_seen/0015_OES/불안.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0023_KSH/불안.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0016_YSH/불안.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0002_LYT/불안.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0017_LSY/불안.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0024_PGJ/불안.wav"></audio></td>
-            </tr>
-            <tr>
-              <th>Hurt</th>
-              <td><audio controls preload="none"><source src="wavs_seen/0015_OES/상처.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0023_KSH/상처.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0016_YSH/상처.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0002_LYT/상처.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0017_LSY/상처.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0024_PGJ/상처.wav"></audio></td>
-            </tr>
-            <tr>
-              <th>Embarrassed</th> 
-              <td><audio controls preload="none"><source src="wavs_seen/0015_OES/당황.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0023_KSH/당황.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0016_YSH/당황.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0002_LYT/당황.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0017_LSY/당황.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_seen/0024_PGJ/당황.wav"></audio></td>
-            </tr>
-            </tbody>
-          </table>
-
-					<p></p>
-
-          
-          <a name="unseen"><h2>Unseen Speaker Emotional TTS <b>(Zero-shot)</b></h2></a>
-          <hr>
-          <table border=1>
-            <tbody>
-            <tr>
-              <th>Emotion</th>
-              <th>N0262 (Female)</th>
-              <th>P0539 (Male)</th>
-              <th>S0071 (Female)</th>
-              <th>P0570 (Male)</th>
-              <th>S0098 (Female)</th>
-              <th>P0943 (Male)</th>
-            </tr>
-            <tr>
-              <th>Reference (Neutral)</th>
-              <td><audio controls preload="none"><source src="wavs_unseen/N0262/ref.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0539/ref.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/S0071/ref.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0570/ref.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/S0098/ref.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0943/ref.wav"></audio></td>
-            </tr>
-            <tr>
-              <th>Text </th>
-              <td>아이들도 언젠가는 그녀를 엄마로 받아들일 거야.</td>
-              <td>철수는 이유를 묻지 않고 돈을 빌려 주었다.</td>
-              <td>저희 회사에 방문해 주셔서 감사드립니다.</td>
-              <td>부모가 저지르는 큰 실수 중 하나는 자기 아이를 다른 집 아이와 비교하는 것이다.</td>
-              <td>그녀의 사랑을 얻기 위해 애썼지만 헛수고였다.</td>
-              <td>진수는 호기심으로 가득찬 눈으로 나를 바라보았다.</td>
-            </tr>
-            <tr>
-              <th>Neutral</th>
-              <td><audio controls preload="none"><source src="wavs_unseen/N0262/무감정.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0539/무감정.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/S0071/무감정.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0570/무감정.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/S0098/무감정.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0943/무감정.wav"></audio></td>
-            </tr>
-            <tr>
-              <th>Happy</th>
-              <td><audio controls preload="none"><source src="wavs_unseen/N0262/기쁨.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0539/기쁨.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/S0071/기쁨.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0570/기쁨.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/S0098/기쁨.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0943/기쁨.wav"></audio></td>
-            </tr>
-            <tr>
-              <th>Sad</th>
-              <td><audio controls preload="none"><source src="wavs_unseen/N0262/슬픔.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0539/슬픔.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/S0071/슬픔.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0570/슬픔.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/S0098/슬픔.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0943/슬픔.wav"></audio></td>
-            </tr>
-            <tr>
-              <th>Angry</th>
-              <td><audio controls preload="none"><source src="wavs_unseen/N0262/분노.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0539/분노.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/S0071/분노.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0570/분노.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/S0098/분노.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0943/분노.wav"></audio></td>
-            </tr>
-            <tr>
-              <th>Anxious</th>
-              <td><audio controls preload="none"><source src="wavs_unseen/N0262/불안.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0539/불안.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/S0071/불안.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0570/불안.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/S0098/불안.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0943/불안.wav"></audio></td>
-            </tr>
-            <tr>
-              <th>Hurt</th>
-              <td><audio controls preload="none"><source src="wavs_unseen/N0262/상처.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0539/상처.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/S0071/상처.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0570/상처.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/S0098/상처.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0943/상처.wav"></audio></td>
-            </tr>
-            <tr>
-              <th>Embarrassed</th> 
-              <td><audio controls preload="none"><source src="wavs_unseen/N0262/당황.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0539/당황.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/S0071/당황.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0570/당황.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/S0098/당황.wav"></audio></td>
-              <td><audio controls preload="none"><source src="wavs_unseen/P0943/당황.wav"></audio></td>
-            </tr>
-            </tbody>
-        </div>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<article>
+				  <header>
+					<h3> <b>Seen Speaker Emotional TTS</h3>
+				  </header>
+				</article>
+				<div>
+					<hr>
+					<table id="seen_kor0", style="table-layout: fixed">
+					<!-- <table id="seen", style="table-layout: fixed"> -->
+						<tbody id="0">
+							<tr id="speaker">
+								<td>
+								Speaker, Emotion
+								</td>
+							</tr>
+							<tr id="text">
+								<td>
+								Text
+								</td>
+							</tr>
+							<tr id="ref">
+								<td>
+								Reference Speech
+								</td>
+							<tr id="a">
+								<td class="first-col">GSS</td>
+							</tr>
+							<tr id="b">
+								<td class="first-col">ZET-Speech(CG)</td>
+							</tr>
+							<tr id="c">
+								<td class="first-col">ZET-Speech(CFG)</td>
+							</tr>
+						</tbody>
+					</table>
+					<hr width = "90%" color = "black">
+					<table id="seen_kor1", style="table-layout: fixed">
+						<tbody>
+							<tr id="speaker">
+							  <td>
+								Speaker, Emotion
+							  </td>
+							</tr>
+							<tr id="text">
+							  <td>
+								Text
+							  </td>
+							</tr>
+							<tr id="ref">
+							  <td>
+								Reference Speech
+							  </td>
+							<tr id="a">
+							  <td class="first-col">GSS</td>
+							</tr>
+							<tr id="b">
+							  <td class="first-col">ZET-Speech(CG)</td>
+							</tr>
+							<tr id="c">
+							  <td class="first-col">ZET-Speech(CFG)</td>
+							</tr>
+							</tbody>
+					</table>
+				  </div>
 			</section>
-    <!-- <script src="script.js" defer></script> -->
-		<!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
 
-  </body>
+			<hr size = "3" width = "100%" color = "black">
+
+		<!-- Two -->
+			<section id="two" class="main style1">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<article>
+					<header>
+					  <h3> <b>Unseen Speaker Emotional TTS <b>(Zero-shot)</b></h3>
+					</header>
+				  </article>
+				  <div>
+					  <hr>
+					  <table id="unseen_kor0", style="table-layout: fixed">
+						<!-- <table id="seen", style="table-layout: fixed"> -->
+							<tbody id="0">
+								<tr id="speaker">
+									<td>
+									Speaker, Emotion
+									</td>
+								</tr>
+								<tr id="text">
+									<td>
+									Text
+									</td>
+								</tr>
+								<tr id="ref">
+									<td>
+									Reference Speech
+									</td>
+								<tr id="a">
+									<td class="first-col">GSS</td>
+								</tr>
+								<tr id="b">
+									<td class="first-col">ZET-Speech(CG)</td>
+								</tr>
+								<tr id="c">
+									<td class="first-col">ZET-Speech(CFG)</td>
+								</tr>
+							</tbody>
+						</table>
+						<hr width = "90%" color = "black">
+						<table id="unseen_kor1", style="table-layout: fixed">
+							<tbody>
+								<tr id="speaker">
+								  <td>
+									Speaker, Emotion
+								  </td>
+								</tr>
+								<tr id="text">
+								  <td>
+									Text
+								  </td>
+								</tr>
+								<tr id="ref">
+								  <td>
+									Reference Speech
+								  </td>
+								<tr id="a">
+								  <td class="first-col">GSS</td>
+								</tr>
+								<tr id="b">
+								  <td class="first-col">ZET-Speech(CG)</td>
+								</tr>
+								<tr id="c">
+								  <td class="first-col">ZET-Speech(CFG)</td>
+								</tr>
+								</tbody>
+						</table>
+					</div>
+			</section>
+
+		<hr size = "3" width = "100%" color = "black">
+
+		<!-- Footer -->
+			<section id="footer">
+				<ul class="copyright">
+					<li>&copy; AITRICS</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</section>
+
+		<!-- Scripts -->
+			<script src="script_audio.js" charset="UTF-8"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
