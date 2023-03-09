@@ -36,9 +36,9 @@ function comparison(speaker, emotion, dataset) {
 
 function allEmotion(speaker, dataset, kor) {
     console.log(dataset)
-    const table10 = document.querySelector(`#${dataset} #a`)
+    const table10 = document.querySelector(`#${dataset} #ref`)
     let raw_data10 = document.createElement('td')
-    raw_data.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset}/cfg/${speaker}/$ref.wav" type="audio/mpeg">`
+    raw_data10.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset}/cfg/${speaker}/$ref.wav" type="audio/mpeg">`
     table10.appendChild(raw_data10)
 
     const table1 = document.querySelector(`#${dataset} #a`)
@@ -66,7 +66,7 @@ function allEmotion(speaker, dataset, kor) {
     raw_data5.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset}/cfg/${speaker}/$불안.wav" type="audio/mpeg">`    
     table5.appendChild(raw_data5)
     
-    if (!kor) {
+    if (kor) {
         const table6 = document.querySelector(`#${dataset} #f`)
         let raw_data6 = document.createElement('td')
         raw_data6.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset}/cfg/${speaker}/$상처.wav" type="audio/mpeg">`    
@@ -87,13 +87,8 @@ function allEmotion(speaker, dataset, kor) {
 
     const table8 = document.querySelector(`#${dataset} #speaker`)
     let raw_data8 = document.createElement('td')
-    raw_data8.innerText = decodeURIComponent(`${speaker}, ${emotion}`)
+    raw_data8.innerText = decodeURIComponent(`${speaker}`)
     table8.appendChild(raw_data8)
-
-    const table9 = document.querySelector(`#${dataset} #ref`)
-    let raw_data9 = document.createElement('td')
-    raw_data9.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset}/cfg/${speaker}/ref.wav" type="audio/mpeg">`
-    table9.appendChild(raw_data9)
 }
 
 
@@ -139,9 +134,7 @@ for (var i = 0; i < allSeenSpeaker.length; i++) {
     let unseen_speaker = allUnseenSpeaker[i]
     let unseen_eng_speaker = allEngUnseenSpeaker[i]
 
-    if (j < allEngEmotion.length){
-        allEmotion(unseen_eng_speaker, 'unseen_eng', false)
-    }
-    allEmotion(seen_speaker, 'seen', true)
-    allEmotion(unseen_speaker, 'unseen', true)
+    allEmotion(unseen_eng_speaker, 'unseen_eng', false)
+    allEmotion(seen_speaker, 'seen_kor', true)
+    allEmotion(unseen_speaker, 'unseen_kor', true)
 }
