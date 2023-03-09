@@ -1,4 +1,4 @@
-function comparison(speaker, emotion, dataset) {
+function comparison(speaker, emotion, emotion_eng, dataset) {
     console.log(dataset.slice(0, -1))
     const table1 = document.querySelector(`#${dataset} #a`)
     let raw_data = document.createElement('td')
@@ -24,7 +24,7 @@ function comparison(speaker, emotion, dataset) {
 
     const table6 = document.querySelector(`#${dataset} #speaker`)
     let raw_data6 = document.createElement('td')
-    raw_data6.innerText = decodeURIComponent(`${speaker}, ${emotion}`)
+    raw_data6.innerText = decodeURIComponent(`${speaker}, ${emotion_eng}`)
     table6.appendChild(raw_data6)
 
     const table7 = document.querySelector(`#${dataset} #ref`)
@@ -91,6 +91,9 @@ function allEmotion(speaker, dataset, kor) {
     table8.appendChild(raw_data8)
 }
 
+const comparisionEmotion_eng = [
+    'happy', 'sad', 'angry', 'embarass'
+]
 
 const comparisonSeenSpeaker = [
     "0015_OES", "0023_KSH"
@@ -107,16 +110,14 @@ for (var i = 0; i < comparisonSeenSpeaker.length; i++) {
     let unseen_speaker = comparisonUnseenSpeaker[i]
     for (var j = 0; j < comparisionEmotion.length; j++){
         let emotion = comparisionEmotion[j]
-        comparison(seen_speaker, emotion, 'seen' + i.toString())
-        comparison(unseen_speaker, emotion, 'unseen' + i.toString())
+        let emotion_eng = comparisionEmotion_eng[j]
+        comparison(seen_speaker, emotion, emotion_eng, 'seen' + i.toString())
+        comparison(unseen_speaker, emotion, emotion_eng, 'unseen' + i.toString())
     }
 }
 
 const allEngUnseenSpeaker = [
     "237", "1089", "1284", "2830"
-]
-const allEngEmotion = [
-    "무감정", "기쁨", "슬픔", "분노", "불안"
 ]
 
 const allSeenSpeaker = [
