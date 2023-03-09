@@ -32,7 +32,6 @@ function comparison(speaker, emotion, emotion_eng, dataset) {
     table7.appendChild(raw_data7)
 }
 
-
 function allEmotion(speaker, dataset, kor) {
     const table10 = document.querySelector(`#${dataset} #ref`)
     let raw_data10 = document.createElement('td')
