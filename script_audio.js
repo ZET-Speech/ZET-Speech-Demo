@@ -1,5 +1,4 @@
 function comparison(speaker, emotion, emotion_eng, dataset) {
-    console.log(dataset.slice(0, -1))
     const table1 = document.querySelector(`#${dataset} #a`)
     let raw_data = document.createElement('td')
     raw_data.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset.slice(0, -1)}/gss/${speaker}/${emotion}.wav" type="audio/mpeg">`
@@ -15,12 +14,12 @@ function comparison(speaker, emotion, emotion_eng, dataset) {
     raw_data3.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset.slice(0, -1)}/cfg/${speaker}/${emotion}.wav" type="audio/mpeg">`    
     table3.appendChild(raw_data3)
     
-    // const table0 = document.querySelector(`#${dataset} #text`)
-    // let raw_data0 = document.createElement('td')
-    // fetch(`./wavs_${dataset.slice(0, -1)}/${speaker}/script.txt`)
-    // .then( response => response.text() )
-    // .then( text => raw_data0.innerText = text )
-    // table0.appendChild(raw_data0)
+    const table0 = document.querySelector(`#${dataset} #text`)
+    let raw_data0 = document.createElement('td')
+    fetch(`./wavs_${dataset.slice(0, -1)}/${speaker}/script.txt`)
+    .then( response => response.text() )
+    .then( text => raw_data0.innerText = text )
+    table0.appendChild(raw_data0)
 
     const table6 = document.querySelector(`#${dataset} #speaker`)
     let raw_data6 = document.createElement('td')
@@ -35,7 +34,6 @@ function comparison(speaker, emotion, emotion_eng, dataset) {
 
 
 function allEmotion(speaker, dataset, kor) {
-    console.log('./wavs_${dataset.slice(0, -4)}/cfg/${speaker}/$ref.wav')
     const table10 = document.querySelector(`#${dataset} #ref`)
     let raw_data10 = document.createElement('td')
     raw_data10.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset.slice(0, -4)}/cfg/${speaker}/$ref.wav" type="audio/mpeg">`
@@ -66,17 +64,17 @@ function allEmotion(speaker, dataset, kor) {
     raw_data5.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset.slice(0, -4)}/cfg/${speaker}/$불안.wav" type="audio/mpeg">`    
     table5.appendChild(raw_data5)
     
-    if (kor) {
-        const table6 = document.querySelector(`#${dataset} #f`)
-        let raw_data6 = document.createElement('td')
-        raw_data6.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset.slice(0, -4)}/cfg/${speaker}/$상처.wav" type="audio/mpeg">`    
-        table6.appendChild(raw_data6)
-        
-        const table7 = document.querySelector(`#${dataset} #g`)
-        let raw_data7 = document.createElement('td')
-        raw_data7.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset.slice(0, -4)}/cfg/${speaker}/$당황.wav" type="audio/mpeg">`    
-        table7.appendChild(raw_data7)
-    }
+    // if (kor) {
+    const table6 = document.querySelector(`#${dataset} #f`)
+    let raw_data6 = document.createElement('td')
+    raw_data6.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset.slice(0, -4)}/cfg/${speaker}/$상처.wav" type="audio/mpeg">`    
+    table6.appendChild(raw_data6)
+    
+    const table7 = document.querySelector(`#${dataset} #g`)
+    let raw_data7 = document.createElement('td')
+    raw_data7.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset.slice(0, -4)}/cfg/${speaker}/$당황.wav" type="audio/mpeg">`    
+    table7.appendChild(raw_data7)
+    // }
     
     // const table0 = document.querySelector(`#${dataset} #text`)
     // let raw_data0 = document.createElement('td')
