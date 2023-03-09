@@ -84,14 +84,14 @@ for (var i = 0; i < comparisonSeenSpeaker.length; i++) {
     let seen_speaker = comparisonSeenSpeaker[i]
     let unseen_speaker = comparisonUnseenSpeaker[i]
     for (var j = 0; j < comparisionEmotion.length; j++){
-        let emotion = emotionArray[j]
+        let emotion = comparisionEmotion[j]
         comparison(seen_speaker, emotion, 'seen' + i.toString())
         comparison(unseen_speaker, emotion, 'unseen' + i.toString())
     }
 }
 
 const allEngUnseenSpeaker = [
-    "", "", "", ""
+    "237", "1089", "1284", "2830"
 ]
 const allEngEmotion = [
     "무감정", "기쁨", "슬픔", "분노", "불안"
@@ -107,13 +107,17 @@ const allKorEmotion = [
     "무감정", "기쁨", "슬픔", "분노", "불안", "상처", "당황"
 ]
 
-for (var i = 0; i < comparisonSeenSpeaker.length; i++) {
-    let seen_speaker = comparisonSeenSpeaker[i]
-    let unseen_speaker = comparisonUnseenSpeaker[i]
-    for (var j = 0; j < comparisionEmotion.length; j++){
-        let emotion = emotionArray[j]
-        comparison(seen_speaker, emotion, 'seen' + i.toString())
-        comparison(unseen_speaker, emotion, 'unseen' + i.toString())
+for (var i = 0; i < allSeenSpeaker.length; i++) {
+    let seen_speaker = allSeenSpeaker[i]
+    let unseen_speaker = allUnseenSpeaker[i]
+    let unseen_eng_speaker = allEngUnseenSpeaker[i]
+
+    for (var j = 0; j < allKorEmotion.length; j++){
+        let emotion = allKorEmotion[j]
+        if (j < allEngEmotion.length){
+            allEmotion(unseen_eng_speaker, emotion, 'unseen_eng' + i.toString())
+        }
+        allEmotion(seen_speaker, emotion, 'seen' + i.toString())
+        allEmotion(unseen_speaker, emotion, 'unseen' + i.toString())
     }
 }
-
