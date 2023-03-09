@@ -14,12 +14,12 @@ function comparison(speaker, emotion, emotion_eng, dataset) {
     raw_data3.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset.slice(0, -1)}_kor/cfg/${speaker}/${emotion}.wav" type="audio/mpeg">`    
     table3.appendChild(raw_data3)
     
-    // const table0 = document.querySelector(`#${dataset} #text`)
-    // let raw_data0 = document.createElement('td')
-    // fetch(`./wavs_${dataset.slice(0, -1)}/${speaker}/script.txt`)
-    // .then( response => response.text() )
-    // .then( text => raw_data0.innerText = text )
-    // table0.appendChild(raw_data0)
+    const table0 = document.querySelector(`#${dataset} #text`)
+    let raw_data0 = document.createElement('td')
+    fetch(`./wavs_${dataset.slice(0, -1)}_kor/cfg/${speaker}/script.txt`)
+    .then( response => response.text() )
+    .then( text => raw_data0.innerText = text )
+    table0.appendChild(raw_data0)
 
     const table6 = document.querySelector(`#${dataset} #speaker`)
     let raw_data6 = document.createElement('td')
@@ -28,7 +28,7 @@ function comparison(speaker, emotion, emotion_eng, dataset) {
 
     const table7 = document.querySelector(`#${dataset} #ref`)
     let raw_data7 = document.createElement('td')
-    raw_data7.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset.slice(0, -1)}/cfg/${speaker}/ref.wav" type="audio/mpeg">`
+    raw_data7.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset.slice(0, -1)}_kor/cfg/${speaker}/ref.wav" type="audio/mpeg">`
     table7.appendChild(raw_data7)
 }
 
@@ -75,12 +75,12 @@ function allEmotion(speaker, dataset, kor) {
         table7.appendChild(raw_data7)
     }
     
-    // const table0 = document.querySelector(`#${dataset} #text`)
-    // let raw_data0 = document.createElement('td')
-    // fetch(`./wavs_${dataset}/${speaker}/script.txt`)
-    // .then( response => response.text() )
-    // .then( text => raw_data0.innerText = text )
-    // table0.appendChild(raw_data0)
+    const table0 = document.querySelector(`#${dataset} #text`)
+    let raw_data0 = document.createElement('td')
+    fetch(`./wavs_${dataset}/cfg/${speaker}/script.txt`)
+    .then( response => response.text() )
+    .then( text => raw_data0.innerText = text )
+    table0.appendChild(raw_data0)
 
     const table8 = document.querySelector(`#${dataset} #speaker`)
     let raw_data8 = document.createElement('td')
