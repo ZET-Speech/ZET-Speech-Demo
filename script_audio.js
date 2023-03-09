@@ -35,6 +35,7 @@ function comparison(speaker, emotion, dataset) {
 
 
 function allEmotion(speaker, dataset, kor) {
+    console.log('./wavs_${dataset.slice(0, -4)}/cfg/${speaker}/$ref.wav')
     const table10 = document.querySelector(`#${dataset} #ref`)
     let raw_data10 = document.createElement('td')
     raw_data10.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset.slice(0, -4)}/cfg/${speaker}/$ref.wav" type="audio/mpeg">`
@@ -133,7 +134,7 @@ for (var i = 0; i < allSeenSpeaker.length; i++) {
     let unseen_speaker = allUnseenSpeaker[i]
     let unseen_eng_speaker = allEngUnseenSpeaker[i]
 
-    allEmotion(unseen_eng_speaker, 'unseen_eng', false)
     allEmotion(seen_speaker, 'seen_kor', true)
     allEmotion(unseen_speaker, 'unseen_kor', true)
+    allEmotion(unseen_eng_speaker, 'unseen_eng', false)
 }
