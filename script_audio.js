@@ -63,17 +63,17 @@ function allEmotion(speaker, dataset, kor) {
     raw_data5.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset.slice(0, -4)}/cfg/${speaker}/불안.wav" type="audio/mpeg">`    
     table5.appendChild(raw_data5)
     
-    // if (kor) {
-    const table6 = document.querySelector(`#${dataset} #f`)
-    let raw_data6 = document.createElement('td')
-    raw_data6.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset.slice(0, -4)}/cfg/${speaker}/상처.wav" type="audio/mpeg">`    
-    table6.appendChild(raw_data6)
-    
-    const table7 = document.querySelector(`#${dataset} #g`)
-    let raw_data7 = document.createElement('td')
-    raw_data7.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset.slice(0, -4)}/cfg/${speaker}/당황.wav" type="audio/mpeg">`    
-    table7.appendChild(raw_data7)
-    // }
+    if (kor) {
+        const table6 = document.querySelector(`#${dataset} #f`)
+        let raw_data6 = document.createElement('td')
+        raw_data6.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset.slice(0, -4)}/cfg/${speaker}/상처.wav" type="audio/mpeg">`    
+        table6.appendChild(raw_data6)
+        
+        const table7 = document.querySelector(`#${dataset} #g`)
+        let raw_data7 = document.createElement('td')
+        raw_data7.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset.slice(0, -4)}/cfg/${speaker}/당황.wav" type="audio/mpeg">`    
+        table7.appendChild(raw_data7)
+    }
     
     // const table0 = document.querySelector(`#${dataset} #text`)
     // let raw_data0 = document.createElement('td')
