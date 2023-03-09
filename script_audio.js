@@ -92,7 +92,7 @@ function allEmotion(speaker, dataset, kor) {
 }
 
 const comparisionEmotion_eng = [
-    'happy', 'sad', 'angry', 'embarass'
+    'Happy', 'Sad', 'Angry', 'Anxious'
 ]
 
 const comparisonSeenSpeaker = [
@@ -117,7 +117,7 @@ for (var i = 0; i < comparisonSeenSpeaker.length; i++) {
 }
 
 const allEngUnseenSpeaker = [
-    "237", "1089", "1284", "2830"
+    "237", "1089", "1284", "2300"
 ]
 
 const allSeenSpeaker = [
