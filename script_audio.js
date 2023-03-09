@@ -14,12 +14,12 @@ function comparison(speaker, emotion, emotion_eng, dataset) {
     raw_data3.innerHTML = `<audio id="audio-player" controls="" preload="none" src="./wavs_${dataset.slice(0, -1)}/cfg/${speaker}/${emotion}.wav" type="audio/mpeg">`    
     table3.appendChild(raw_data3)
     
-    const table0 = document.querySelector(`#${dataset} #text`)
-    let raw_data0 = document.createElement('td')
-    fetch(`./wavs_${dataset.slice(0, -1)}/${speaker}/script.txt`)
-    .then( response => response.text() )
-    .then( text => raw_data0.innerText = text )
-    table0.appendChild(raw_data0)
+    // const table0 = document.querySelector(`#${dataset} #text`)
+    // let raw_data0 = document.createElement('td')
+    // fetch(`./wavs_${dataset.slice(0, -1)}/${speaker}/script.txt`)
+    // .then( response => response.text() )
+    // .then( text => raw_data0.innerText = text )
+    // table0.appendChild(raw_data0)
 
     const table6 = document.querySelector(`#${dataset} #speaker`)
     let raw_data6 = document.createElement('td')
