@@ -7,22 +7,36 @@
 <html>
 	<head>
 		<title>ZET-Speech</title>
+
+		<!-- Roboto -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">		
+		<style>
+			* {
+				/* font-family: 'Roboto', sans-serif;
+				font-family: 'Roboto Mono', monospace;
+				font-family: 'IBM Plex Sans KR', sans-serif;
+				font-family: 'Nanum Gothic', sans-serif; */
+				font-family: 'Gothic A1', sans-serif;
+			}
+		</style>
+		
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!-- <link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript> -->
+		<link rel="stylesheet" href="assets/css/zet-speech.css" />
+		<!-- <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript> -->
 	</head>
 	<body class="is-preload">
-		<div class="inner" style="border:1px solid; padding:20px;">
+		<div class="inner" style="border:2px solid; padding:10px;">
 			<center><h1><b>ZET-Speech</b></h1></center>
 			<center><p><b>Z</b>ero-shot adaptive <b>E</b>motion-controllable <b>T</b>ext-to-<b>Speech</b> Synthesis with Diffusion and Style-based Models</p></center>
 		</div>
-
 			<section id="three" class="main style1">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<article>
 					<header>
-					<h3><b>[Zero-Shot] English Unseen Speaker Emotional TTS (All Emotions)</b></h3>
+						<h3><b>[Zero-shot] English Unseen Speaker Emotional TTS (All Emotions)</b></h3>
 					</header>
 				</article>
 				<div style="border:1px solid;">
@@ -36,7 +50,7 @@
 								<td><b>Text</b></td>
 							</tr>
 							<tr id="ref">
-								<td>Reference Speech</td>
+								<td><b>Reference Speech</b></td>
 							</tr>
 							<tr id="a">
 								<td class="first-col">Neutral</td>
@@ -79,7 +93,7 @@
 								<td><b>Text</b></td>
 							</tr>
 							<tr id="ref">
-								<td>Reference Speech</td>
+								<td><b>Reference Speech</b></td>
 							</tr>
 							<tr id="a">
 								<td class="first-col">GSS</td>
@@ -92,7 +106,7 @@
 							</tr>
 						</tbody>
 					</table>
-					<hr width = "20%" color = "black">
+					<hr width = "100%" color = "black">
 					<table id="seen1", style="table-layout: fixed">
 						<tbody>
 							<tr id="speaker">
@@ -102,7 +116,7 @@
 								<td><b>Text</b></td>
 							</tr>
 							<tr id="ref">
-								<td>Reference Speech</td>
+								<td><b>Reference Speech</b></td>
 							</tr>
 							<tr id="a">
 							  <td class="first-col">GSS</td>
@@ -124,7 +138,7 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<article>
 					<header>
-					  <h3><b>[Zero-Shot] Korean Unseen Speaker Emotional TTS (Comparisons)</b></h3>
+					  <h3><b>[Zero-shot] Korean Unseen Speaker Emotional TTS (Comparisons)</b></h3>
 					</header>
 				  </article>
 				  <div style="border:1px solid;">
@@ -138,7 +152,7 @@
 									<td><b>Text</b></td>
 								</tr>
 								<tr id="ref">
-									<td>Reference Speech</td>
+									<td><b>Reference Speech</b></td>
 								</tr>
 								<tr id="a">
 									<td class="first-col">GSS</td>
@@ -151,7 +165,7 @@
 								</tr>
 							</tbody>
 						</table>
-						<hr width = "20%" color = "black">
+						<hr width = "100%" color = "black">
 						<table id="unseen1", style="table-layout: fixed">
 							<tbody>
 								<tr id="speaker">
@@ -161,7 +175,7 @@
 									<td><b>Text</b></td>
 								</tr>
 								<tr id="ref">
-									<td>Reference Speech</td>
+									<td><b>Reference Speech</b></td>
 								</tr>
 								<tr id="a">
 								  <td class="first-col">GSS</td>
@@ -197,7 +211,7 @@
 								<td><b>Text</b></td>
 							</tr>
 							<tr id="ref">
-								<td>Reference Speech</td>
+								<td><b>Reference Speech</b></td>
 							</tr>
 							<tr id="a">
 								<td class="first-col">Neutral</td>
@@ -232,7 +246,7 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<article>
 					<header>
-					<h3><b>[Zero-Shot] Korean Unseen Speaker Emotional TTS (All Emotions)</b></h3>
+					<h3><b>[Zero-shot] Korean Unseen Speaker Emotional TTS (All Emotions)</b></h3>
 					</header>
 				</article>
 				<div style="border:1px solid;">
@@ -246,7 +260,7 @@
 								<td><b>Text</b></td>
 							</tr>
 							<tr id="ref">
-								<td>Reference Speech</td>
+								<td><b>Reference Speech</b></td>
 							</tr>
 							<tr id="a">
 								<td class="first-col">Neutral</td>
