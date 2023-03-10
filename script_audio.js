@@ -116,7 +116,7 @@ for (var i = 0; i < comparisonSeenSpeaker.length; i++) {
 }
 
 const allEngUnseenSpeaker = [
-    "237", "1089", "1284", "2300"
+    "1284", "260", "237", "1089"
 ]
 
 const allSeenSpeaker = [
