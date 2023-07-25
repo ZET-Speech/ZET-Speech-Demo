@@ -1,5 +1,5 @@
 # ZET-Speech
 
-
-![ZET-Speech_Home](./images/ZET-Speech_Home.png)
+This is the repository of ZET-Speech's demo page.
+![ZET-Speech_Main](./static/images/model_overview.png)
 

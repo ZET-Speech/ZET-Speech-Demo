@@ -1,301 +1,615 @@
-<!DOCTYPE HTML>
-<!--
-	Photon by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>ZET-Speech</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ZET-Speech: Zero-shot adaptive Emotion-controllable Text-to-Speech Synthesis with Diffusion and Style-based Models">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZET-Speech</title>
 
-		<!-- Roboto -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">		
-		<style>
-			* {
-				/* font-family: 'Roboto', sans-serif;
-				font-family: 'Roboto Mono', monospace;
-				font-family: 'IBM Plex Sans KR', sans-serif;
-				font-family: 'Nanum Gothic', sans-serif; */
-				font-family: 'Gothic A1', sans-serif;
-			}
-		</style>
-		
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/zet-speech.css" />
-		<!-- <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript> -->
-	</head>
-	<body class="is-preload">
-		<div class="inner" style="border:2px solid; padding:10px;">
-			<center><h1><b>ZET-Speech</b></h1></center>
-			<center><p><b>Z</b>ero-shot adaptive <b>E</b>motion-controllable <b>T</b>ext-to-<b>Speech</b> Synthesis with Diffusion and Style-based Models</p></center>
-		</div>
-			<section id="three" class="main style1">
-				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<article>
-					<header>
-						<h3><b>[Zero-shot] English Unseen Speaker Emotional TTS (All Emotions)</b> <Sup><SMALL>[ZET-Speech(CFG)]</SMALL></Sup></h3>
-					</header>
-				</article>
-				<div style="border:1px solid;">
-					<hr>
-					<table id="unseen_eng", style="table-layout: fixed">
-						<tbody id="0">
-							<tr id="speaker">
-								<td><b>Speaker</b></td>
-							</tr>
-							<tr id="text">
-								<td><b>Text</b></td>
-							</tr>
-							<tr id="ref">
-								<td><b>Reference Speech</b></td>
-							</tr>
-							<tr id="a">
-								<td class="first-col">Neutral</td>
-							</tr>
-							<tr id="b">
-								<td class="first-col">Happy</td>
-							</tr>
-							<tr id="c">
-								<td class="first-col">Sad</td>
-							</tr>
-							<tr id="d">
-								<td class="first-col">Angry</td>
-							</tr>
-							<tr id="e">
-								<td class="first-col">Surprise</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</section>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7749G0HJZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-		<hr size = "2" width = "100%" color = "black">
-		<!-- One -->
-			<section id="one" class="main style1">
-				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<article>
-				  <header>
-					<h3><b>Korean Seen Speaker Emotional TTS (Comparisons)</b></h3>
-				  </header>
-				</article>
-				<div style="border:1px solid;">
-					<hr>
-					<table id="seen0", style="table-layout: fixed">
-					<!-- <table id="seen", style="table-layout: fixed"> -->
-						<tbody id="0">
-							<tr id="speaker">
-								<td><b>Speaker, Emotion</b></td>
-							</tr>
-							<tr id="text">
-								<td><b>Text</b></td>
-							</tr>
-							<tr id="ref">
-								<td><b>Reference Speech</b></td>
-							</tr>
-							<tr id="a">
-								<td class="first-col">GSS</td>
-							</tr>
-							<tr id="b">
-								<td class="first-col">ZET-Speech(CG)</td>
-							</tr>
-							<tr id="c">
-								<td class="first-col">ZET-Speech(CFG)</td>
-							</tr>
-						</tbody>
-					</table>
-					<hr width = "100%" color = "black">
-					<table id="seen1", style="table-layout: fixed">
-						<tbody>
-							<tr id="speaker">
-								<td><b>Speaker, Emotion</b></td>
-							</tr>
-							<tr id="text">
-								<td><b>Text</b></td>
-							</tr>
-							<tr id="ref">
-								<td><b>Reference Speech</b></td>
-							</tr>
-							<tr id="a">
-							  <td class="first-col">GSS</td>
-							</tr>
-							<tr id="b">
-							  <td class="first-col">ZET-Speech(CG)</td>
-							</tr>
-							<tr id="c">
-							  <td class="first-col">ZET-Speech(CFG)</td>
-							</tr>
-							</tbody>
-					</table>
-				  </div>
-			</section>
+  gtag('config', 'G-L7749G0HJZ');
+</script>
 
-			<hr size = "2" width = "100%" color = "black">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
 
-			<section id="two" class="main style1">
-				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<article>
-					<header>
-					  <h3><b>[Zero-shot] Korean Unseen Speaker Emotional TTS (Comparisons)</b></h3>
-					</header>
-				  </article>
-				  <div style="border:1px solid;">
-					  <hr>
-						<table id="unseen0", style="table-layout: fixed">
-							<tbody id="0">
-								<tr id="speaker">
-									<td><b>Speaker, Emotion</b></td>
-								</tr>
-								<tr id="text">
-									<td><b>Text</b></td>
-								</tr>
-								<tr id="ref">
-									<td><b>Reference Speech</b></td>
-								</tr>
-								<tr id="a">
-									<td class="first-col">GSS</td>
-								</tr>
-								<tr id="b">
-									<td class="first-col">ZET-Speech(CG)</td>
-								</tr>
-								<tr id="c">
-									<td class="first-col">ZET-Speech(CFG)</td>
-								</tr>
-							</tbody>
-						</table>
-						<hr width = "100%" color = "black">
-						<table id="unseen1", style="table-layout: fixed">
-							<tbody>
-								<tr id="speaker">
-									<td><b>Speaker, Emotion</b></td>
-								</tr>
-								<tr id="text">
-									<td><b>Text</b></td>
-								</tr>
-								<tr id="ref">
-									<td><b>Reference Speech</b></td>
-								</tr>
-								<tr id="a">
-								  <td class="first-col">GSS</td>
-								</tr>
-								<tr id="b">
-								  <td class="first-col">ZET-Speech(CG)</td>
-								</tr>
-								<tr id="c">
-								  <td class="first-col">ZET-Speech(CFG)</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-			</section>
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
 
-			<hr size = "2" width = "100%" color = "black">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+</head>
+<body>
 
-			<section id="four" class="main style1">
-				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<article>
-					<header>
-					<h3><b>Korean Seen Speaker Emotional TTS (All Emotions)</b> <Sup><SMALL>[ZET-Speech(CFG)]</SMALL></Sup></h3>
-					</header>
-				</article>
-				<div style="border:1px solid;">
-					<hr>
-					<table id="seen_kor", style="table-layout: fixed">
-						<tbody id="0">
-							<tr id="speaker">
-								<td><b>Speaker</b></td>
-							</tr>
-							<tr id="text">
-								<td><b>Text</b></td>
-							</tr>
-							<tr id="ref">
-								<td><b>Reference Speech</b></td>
-							</tr>
-							<tr id="a">
-								<td class="first-col">Neutral</td>
-							</tr>
-							<tr id="b">
-								<td class="first-col">Happy</td>
-							</tr>
-							<tr id="c">
-								<td class="first-col">Sad</td>
-							</tr>
-							<tr id="d">
-								<td class="first-col">Angry</td>
-							</tr>
-							<tr id="e">
-								<td class="first-col">Anxious</td>
-							</tr>
-							<tr id="f">
-								<td class="first-col">Hurt</td>
-							</tr>
-							<tr id="g">
-								<td class="first-col">Embarrassed</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</section>
+<section class="hero">
+  <div class="hero-body" style="padding-bottom: 24px;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">ZET-Speech</h1>
+          <h4 class="title is-3 publication-title">Zero-shot adaptive Emotion-controllable Text-to-Speech Synthesis with Diffusion and Style-based Models</h4>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="#">Minki Kang</a><sup>1,2*</sup>,</span>
+            <span class="author-block">
+              <a href="#">Wooseok Han</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="#">Sung Ju Hwang</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="#">Eunho Yang</a><sup>1,2</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>AITRICS</span>
+            <span class="author-block"><sup>2</sup>KAIST</span>
+          </div>
+          <div class="is-size-8 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal Contribution</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2305.13831"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
-			<hr size = "2" width = "100%" color = "black">
+<section class="section" style="padding-top: 0px;">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Emotional Text-To-Speech (TTS) is an important task in the development of systems (e.g., human-like dialogue agents) that require natural and emotional speech. 
+            Existing approaches, however, only aim to produce emotional TTS for seen speakers during training, without consideration of the generalization to unseen speakers. 
+          <!-- </p>
+          <p> -->
+            In this paper, we propose ZET-Speech, a zero-shot adaptive emotion-controllable TTS model that allows users to synthesize 
+            any speaker's emotional speech using only a short, neutral speech segment and the target emotion label. 
+            Specifically, to enable a zero-shot adaptive TTS model to synthesize emotional speech, 
+            we propose domain adversarial learning and guidance methods on the diffusion model. 
+          <!-- </p>
 
-			<section id="five" class="main style1">
-				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<article>
-					<header>
-					<h3><b>[Zero-shot] Korean Unseen Speaker Emotional TTS (All Emotions)</b> <Sup><SMALL>[ZET-Speech(CFG)]</SMALL></Sup></h3>
-					</header>
-				</article>
-				<div style="border:1px solid;">
-					<hr>
-					<table id="unseen_kor", style="table-layout: fixed">
-						<tbody id="0">
-							<tr id="speaker">
-								<td><b>Speaker</b></td>
-							</tr>
-							<tr id="text">
-								<td><b>Text</b></td>
-							</tr>
-							<tr id="ref">
-								<td><b>Reference Speech</b></td>
-							</tr>
-							<tr id="a">
-								<td class="first-col">Neutral</td>
-							</tr>
-							<tr id="b">
-								<td class="first-col">Happy</td>
-							</tr>
-							<tr id="c">
-								<td class="first-col">Sad</td>
-							</tr>
-							<tr id="d">
-								<td class="first-col">Angry</td>
-							</tr>
-							<tr id="e">
-								<td class="first-col">Anxious</td>
-							</tr>
-							<tr id="f">
-								<td class="first-col">Hurt</td>
-							</tr>
-							<tr id="g">
-								<td class="first-col">Embarrassed</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</section>
+          <p> -->
+            Experimental results demonstrate that ZET-Speech successfully synthesizes natural and emotional speech with the desired emotion for both seen and unseen speakers.
+          </p>
+        </div>
 
-		<!-- Scripts -->
-			<script src="script_audio.js" charset="UTF-8"></script>
-			<!-- <script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script> -->
+      </div>
+    </div>
+    <!--/ Abstract. -->
 
-	</body>
+  </div>
+</section>
+
+
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop is-centered has-text-centered">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Model Overview</h2>
+          <img src="./static/images/model_overview.png"
+                    class="interpolation-image"
+                    alt="Interpolate start reference image."/>
+          <h2 class="has-text-centered is-8">
+            The overall architecture of ZET-Speech is based on <a href="https://arxiv.org/abs/2211.09383">Grad-StyleSpeech</a>. Thanks to Domain Adversarial Training, we successfully disentangle emotional features from the style vector in the reference speech. Furthermore, the Classifier (Free) Guidance significantly enhances the emotion performance of the diffusion model, resulting in better-conditioned outputs.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="content"></div>
+          <h3 class="title is-3">[Zero-shot] English Unseen Speaker Emotional TTS</h3>
+          <div class="content">
+            <!-- <p>
+              <h4>Script</h4>
+              1284 : My father has lost his too, and my eldest brother, but we all look like people risen from the dead.<br>
+              <span><i class="far fa-hand-peace fa-lg"></i></span>The lad was thirty years old, and his age to that of his employer was as fifteen is to twenty.<br>
+              <span><i class="far fa-hand-peace fa-lg"></i></span>These gentlemen, now, what do they come for? he said, pointing to the malignant gentleman, who was talking at the high table.<br>
+              <span><i class="far fa-hand-peace fa-lg"></i></span>One perceives, without understanding it, a hideous murmur, sounding almost like human accents, but more nearly resembling a howl than an articulate word.<br>
+            </p> -->
+              <p>
+                <b>Lists zero-shot synthesized speech samples using ZET-Speech(CFG)</b>
+              </p>
+          </div>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered  is-full-width">
+        <table class="table" style="background-color: transparent;">
+          <thead>
+            <tr>
+              <th align="center"><strong><span class="icon"><i class="fa-solid fa-person-dress"></i></span>Emotion|Speaker</strong></th>
+              <th align="center"><strong>1284👩</strong></th>
+              <th align="center"><strong>260👨</strong></th>
+              <th align="center"><strong>237👩</strong></th>
+              <th align="center"><strong>1089👨</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width="28%" style="text-align: center;"><p><b>Reference Speech</b></p></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/1284/ref.wav" type="audio/wav"></audio></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/260/ref.wav" type="audio/wav"></audio></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/237/ref.wav" type="audio/wav"></audio></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/1089/ref.wav" type="audio/wav"></audio></td>
+              </tr>
+            <tr>
+              <td width="28%" style="text-align: center;"><p>Neutral</p></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/1284/무감정.wav" type="audio/wav"></audio></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/260/무감정.wav" type="audio/wav"></audio></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/237/무감정.wav" type="audio/wav"></audio></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/1089/무감정.wav" type="audio/wav"></audio></td>
+              </tr>
+            <tr>
+              <td width="28%" style="text-align: center;"><p>Happy</p></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/1284/기쁨.wav" type="audio/wav"></audio></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/260/기쁨.wav" type="audio/wav"></audio></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/237/기쁨.wav" type="audio/wav"></audio></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/1089/기쁨.wav" type="audio/wav"></audio></td>
+              </tr>
+            <tr>
+              <td width="28%" style="text-align: center;"><p>Sad</p></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/1284/슬픔.wav" type="audio/wav"></audio></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/260/슬픔.wav" type="audio/wav"></audio></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/237/슬픔.wav" type="audio/wav"></audio></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/1089/슬픔.wav" type="audio/wav"></audio></td>
+              </tr>
+            <tr>
+              <td width="28%" style="text-align: center;"><p>Angry</p></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/1284/분노.wav" type="audio/wav"></audio></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/260/분노.wav" type="audio/wav"></audio></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/237/분노.wav" type="audio/wav"></audio></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/1089/분노.wav" type="audio/wav"></audio></td>
+              </tr>
+            <tr>
+              <td width="28%" style="text-align: center;"><p>Surprise</p></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/1284/놀람.wav" type="audio/wav"></audio></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/260/놀람.wav" type="audio/wav"></audio></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/237/놀람.wav" type="audio/wav"></audio></td>
+              <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_eng/cfg/1089/놀람.wav" type="audio/wav"></audio></td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="content">
+      </div>
+      <!-- <p>
+        1284: My father has lost his too, and my eldest brother, but we all look like people risen from the dead.<br>
+        260: The lad was thirty years old, and his age to that of his employer was as fifteen is to twenty.<br>
+        237: These gentlemen, now, what do they come for? he said, pointing to the malignant gentleman, who was talking at the high table.<br>
+        1089: One perceives, without understanding it, a hideous murmur, sounding almost like human accents, but more nearly resembling a howl than an articulate word.<br>
+      </p> -->
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <div class="content"><br></div>
+        <h3 class="title is-3">[Comparison] Korean Emotional TTS</h3>
+        <div class="content">
+             <b>Compare the synthesized speech between 'Pure Emotional Grad-StyleSpeech' and 'ZET-Speech'</b>
+        </div>
+        <h3 class="title is-4">Seen Speaker</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th align="center"><strong>Speaker👩<br>Emotion</strong></th>
+              <th align="center"><strong>0015_OES<br>Happy</strong></th>
+              <th align="center"><strong>0015_OES<br>Sad</strong></th>
+              <th align="center"><strong>0015_OES<br>Angry</strong></th>
+              <th align="center"><strong>0015_OES<br>Anxious</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width="38%"><p><b>Reference Speech</b></p></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0015_OES/ref.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0015_OES/ref.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0015_OES/ref.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0015_OES/ref.wav" type="audio/wav"></audio></td>
+              </tr>
+            <tr>
+              <td width="38%"><p>Grad-StyleSpeech</p></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/gss/0015_OES/기쁨.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/gss/0015_OES/슬픔.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/gss/0015_OES/분노.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/gss/0015_OES/불안.wav" type="audio/wav"></audio></td>
+              </tr>
+            <tr>
+              <td width="38%"><p>ZET-Speech(CG)</p></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cg/0015_OES/기쁨.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cg/0015_OES/슬픔.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cg/0015_OES/분노.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cg/0015_OES/불안.wav" type="audio/wav"></audio></td>
+              </tr>
+            <tr>
+              <td width="38%"><p>ZET-Speech(CFG)</p></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0015_OES/기쁨.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0015_OES/슬픔.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0015_OES/분노.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0015_OES/불안.wav" type="audio/wav"></audio></td>
+               </tr>
+          </tbody>
+        </table>
+        
+        <table class="table">
+          <thead>
+            <tr>
+              <th align="center"><strong>Speaker👨<br>Emotion</strong></th>
+              <th align="center"><strong>0023_KSH<br>Happy</strong></th>
+              <th align="center"><strong>0023_KSH<br>Sad</strong></th>
+              <th align="center"><strong>0023_KSH<br>Angry</strong></th>
+              <th align="center"><strong>0023_KSH<br>Anxious</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width="38%"><p><b>Reference Speech</b></p></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0023_KSH/ref.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0023_KSH/ref.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0023_KSH/ref.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0023_KSH/ref.wav" type="audio/wav"></audio></td>
+              </tr>
+            <tr>
+              <td width="38%"><p>Grad-StyleSpeech</p></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/gss/0023_KSH/기쁨.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/gss/0023_KSH/슬픔.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/gss/0023_KSH/분노.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/gss/0023_KSH/불안.wav" type="audio/wav"></audio></td>
+              </tr>
+            <tr>
+              <td width="38%"><p>ZET-Speech(CG)</p></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cg/0023_KSH/기쁨.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cg/0023_KSH/슬픔.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cg/0023_KSH/분노.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cg/0023_KSH/불안.wav" type="audio/wav"></audio></td>
+              </tr>
+            <tr>
+              <td width="38%"><p>ZET-Speech(CFG)</p></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0023_KSH/기쁨.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0023_KSH/슬픔.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0023_KSH/분노.wav" type="audio/wav"></audio></td>
+              <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0023_KSH/불안.wav" type="audio/wav"></audio></td>
+               </tr>
+          </tbody>
+        </table>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="content"><br></div>
+          <h3 class="title is-4">Unseen Speaker (Zero-shot)</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th align="center"><strong>Speaker👩<br>Emotion</strong></th>
+                <th align="center"><strong>N0262<br>Happy</strong></th>
+                <th align="center"><strong>N0262<br>Sad</strong></th>
+                <th align="center"><strong>N0262<br>Angry</strong></th>
+                <th align="center"><strong>N0262<br>Anxious</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td width="38%"><p><b>Reference Speech</b></p></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/N0262/ref.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/N0262/ref.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/N0262/ref.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/N0262/ref.wav" type="audio/wav"></audio></td>
+                </tr>
+              <tr>
+                <td width="38%"><p>Grad-StyleSpeech</p></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/gss/N0262/기쁨.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/gss/N0262/슬픔.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/gss/N0262/분노.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/gss/N0262/불안.wav" type="audio/wav"></audio></td>
+                </tr>
+              <tr>
+                <td width="38%"><p>ZET-Speech(CG)</p></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cg/N0262/기쁨.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cg/N0262/슬픔.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cg/N0262/분노.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cg/N0262/불안.wav" type="audio/wav"></audio></td>
+                </tr>
+              <tr>
+                <td width="38%"><p>ZET-Speech(CFG)</p></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/N0262/기쁨.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/N0262/슬픔.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/N0262/분노.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/N0262/불안.wav" type="audio/wav"></audio></td>
+                 </tr>
+            </tbody>
+          </table>
+          
+          <table class="table">
+            <thead>
+              <tr>
+                <th align="center"><strong>Speaker👨<br>Emotion</strong></th>
+                <th align="center"><strong>P0539<br>Happy</strong></th>
+                <th align="center"><strong>P0539<br>Sad</strong></th>
+                <th align="center"><strong>P0539<br>Angry</strong></th>
+                <th align="center"><strong>P0539<br>Anxious</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td width="38%"><p><b>Reference Speech</b></p></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0539/ref.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0539/ref.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0539/ref.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0539/ref.wav" type="audio/wav"></audio></td>
+                </tr>
+              <tr>
+                <td width="38%"><p>Grad-StyleSpeech</p></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/gss/P0539/기쁨.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/gss/P0539/슬픔.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/gss/P0539/분노.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/gss/P0539/불안.wav" type="audio/wav"></audio></td>
+                </tr>
+              <tr>
+                <td width="38%"><p>ZET-Speech(CG)</p></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cg/P0539/기쁨.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cg/P0539/슬픔.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cg/P0539/분노.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cg/P0539/불안.wav" type="audio/wav"></audio></td>
+                </tr>
+              <tr>
+                <td width="38%"><p>ZET-Speech(CFG)</p></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0539/기쁨.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0539/슬픔.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0539/분노.wav" type="audio/wav"></audio></td>
+                <td width="10%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0539/불안.wav" type="audio/wav"></audio></td>
+                 </tr>
+            </tbody>
+          </table>
+          <div class="content"></div>
+    </div>
+  </section>
+
+
+
+
+
+  <section class="hero is-light is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <div class="content"><br></div>
+          <h3 class="title is-3">[All Emotion] Korean Emotional TTS</h3>
+          <div class="content">
+               <b>Lists synthesized all of emotion speech samples using ZET-Speech(CFG)</b>
+          </div>
+          <h3 class="title is-4">Seen Speaker</h3>
+          <table class="table" style="background-color: transparent;">
+            <thead>
+              <tr>
+                <th align="center"><strong><span class="icon"><i class="fa-solid fa-person-dress"></i></span>Emotion|Speaker</strong></th>
+                <th align="center"><strong>0016_YSH👩</strong></th>
+                <th align="center"><strong>0002_LYT👨</strong></th>
+                <th align="center"><strong>0017_LSY👩</strong></th>
+                <th align="center"><strong>0024_PGJ👨</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td width="28%" style="text-align: center;"><p><b>Reference Speech</b></p></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0016_YSH/ref.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0002_LYT/ref.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0017_LSY/ref.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0024_PGJ/ref.wav" type="audio/wav"></audio></td>
+                </tr>
+              <tr>
+                <td width="28%" style="text-align: center;"><p>Neutral</p></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0016_YSH/무감정.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0002_LYT/무감정.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0017_LSY/무감정.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0024_PGJ/무감정.wav" type="audio/wav"></audio></td>
+                </tr>
+              <tr>
+                <td width="28%" style="text-align: center;"><p>Happy</p></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0016_YSH/기쁨.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0002_LYT/기쁨.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0017_LSY/기쁨.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0024_PGJ/기쁨.wav" type="audio/wav"></audio></td>
+                </tr>
+              <tr>
+                <td width="28%" style="text-align: center;"><p>Sad</p></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0016_YSH/슬픔.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0002_LYT/슬픔.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0017_LSY/슬픔.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0024_PGJ/슬픔.wav" type="audio/wav"></audio></td>
+                </tr>
+              <tr>
+                <td width="28%" style="text-align: center;"><p>Angry</p></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0016_YSH/분노.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0002_LYT/분노.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0017_LSY/분노.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0024_PGJ/분노.wav" type="audio/wav"></audio></td>
+                </tr>
+              <tr>
+                <td width="28%" style="text-align: center;"><p>Anxious</p></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0016_YSH/당황.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0002_LYT/당황.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0017_LSY/당황.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0024_PGJ/당황.wav" type="audio/wav"></audio></td>
+                </tr>
+              <tr>
+                <td width="28%" style="text-align: center;"><p>Hurt</p></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0016_YSH/상처.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0002_LYT/상처.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0017_LSY/상처.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0024_PGJ/상처.wav" type="audio/wav"></audio></td>
+              </tr>
+              <tr>
+                <td width="28%" style="text-align: center;"><p>Embarrassed</p></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0016_YSH/불안.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0002_LYT/불안.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0017_LSY/불안.wav" type="audio/wav"></audio></td>
+                <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_seen_kor/cfg/0024_PGJ/불안.wav" type="audio/wav"></audio></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  </section>
+  
+  
+  <section class="hero is-light is-small">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div class="content"><br></div>
+            <h3 class="title is-4">Unseen Speaker (Zero-shot)</h3>
+            
+            <table class="table" style="background-color: transparent;">
+              <thead>
+                <tr>
+                  <th align="center"><strong><span class="icon"><i class="fa-solid fa-person-dress"></i></span>Emotion|Speaker</strong></th>
+                  <th align="center"><strong>S0071👩</strong></th>
+                  <th align="center"><strong>P0570👨</strong></th>
+                  <th align="center"><strong>S0098👩</strong></th>
+                  <th align="center"><strong>P0943👨</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td width="28%" style="text-align: center;"><p><b>Reference Speech</b></p></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/S0071/ref.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0570/ref.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/S0098/ref.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0943/ref.wav" type="audio/wav"></audio></td>
+                  </tr>
+                <tr>
+                  <td width="28%" style="text-align: center;"><p>Neutral</p></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/S0071/무감정.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0570/무감정.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/S0098/무감정.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0943/무감정.wav" type="audio/wav"></audio></td>
+                  </tr>
+                <tr>
+                  <td width="28%" style="text-align: center;"><p>Happy</p></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/S0071/기쁨.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0570/기쁨.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/S0098/기쁨.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0943/기쁨.wav" type="audio/wav"></audio></td>
+                  </tr>
+                <tr>
+                  <td width="28%" style="text-align: center;"><p>Sad</p></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/S0071/슬픔.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0570/슬픔.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/S0098/슬픔.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0943/슬픔.wav" type="audio/wav"></audio></td>
+                  </tr>
+                <tr>
+                  <td width="28%" style="text-align: center;"><p>Angry</p></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/S0071/분노.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0570/분노.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/S0098/분노.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0943/분노.wav" type="audio/wav"></audio></td>
+                  </tr>
+                <tr>
+                  <td width="28%" style="text-align: center;"><p>Anxious</p></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/S0071/당황.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0570/당황.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/S0098/당황.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0943/당황.wav" type="audio/wav"></audio></td>
+                  </tr>
+                <tr>
+                  <td width="28%" style="text-align: center;"><p>Hurt</p></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/S0071/상처.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0570/상처.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/S0098/상처.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0943/상처.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                  <td width="28%" style="text-align: center;"><p>Embarrassed</p></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/S0071/불안.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0570/불안.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/S0098/불안.wav" type="audio/wav"></audio></td>
+                  <td width="12%" style="text-align: center;"><audio controls="" ><source src="static/wavs/wavs_unseen_kor/cfg/P0943/불안.wav" type="audio/wav"></audio></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="content"></div>
+      </div>
+    </section>
+  
+
+
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Licenses</h2>
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                                                  href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              Website source code based on the <a
+              href="https://mega-tts.github.io/mega2_demo">MEGA-TTS 2</a> project page.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>
